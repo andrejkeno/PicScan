@@ -1,0 +1,173 @@
+﻿<Page
+    x:Class="PicScan.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PicScan"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"  
+    
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.BottomAppBar>
+        <CommandBar
+            Name="commandBar" Opacity="0"  >
+            <CommandBar.SecondaryCommands>
+                <AppBarToggleButton 
+                    Name="toggleOptions"
+                    Label="Options"
+                    Icon="Zoom"
+                    IsEnabled="False"
+                    IsChecked="False"
+                    Unchecked="toggleOptions_Unchecked"
+                    Checked="toggleOptions_Checked" RenderTransformOrigin="1, 1.5">
+                    <AppBarToggleButton.RenderTransform>
+                        <CompositeTransform Rotation="-90"/>
+                    </AppBarToggleButton.RenderTransform>
+                </AppBarToggleButton>
+            </CommandBar.SecondaryCommands>
+
+            <AppBarButton Name="ScanButton"
+                          Click="captureButton_Click"
+                          Icon="Scan" 
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top">
+                <AppBarButton.RenderTransform>
+                    <CompositeTransform/>
+                </AppBarButton.RenderTransform>
+            </AppBarButton>
+            <AppBarButton Name="Back"
+                          Click="Back_Click"
+                          Icon="Back"
+                          Visibility="Collapsed"/>
+            <AppBarButton Name="Save"
+                          Click="Save_Click"
+                          Icon="Save"
+                          Visibility="Collapsed"/>
+            <AppBarButton Name="Delete"
+                          Click="Delete_Click"
+                          Icon="Delete"
+                          Visibility="Collapsed" />
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid >
+
+        <CaptureElement x:Name="capturePreview"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center" Margin="0,0,-58,0" 
+                        
+                        />
+       
+        <Image Name="imagePreview" 
+            HorizontalAlignment="Center"
+              VerticalAlignment="Center"
+              Margin="0,0,-58,0"
+               />
+
+        <MediaElement x:Name="player"
+                      Source="/Assets/ScannerSound.mp3"
+                      AutoPlay="False"/>
+
+        <RadioButton
+            GroupName="Radio"
+            Name="Normal"
+            Content="Normal"
+            HorizontalAlignment="Left" 
+            Margin="30,0,0,0" 
+            VerticalAlignment="Top"
+            Visibility="Collapsed"
+            Checked="Normal_Checked"/>
+        
+        <RadioButton 
+            GroupName="Radio"            
+            Name="Gaussian"
+            Content="Gauss"
+            HorizontalAlignment="Left"
+            Margin="150,0,0,0" 
+            VerticalAlignment="Top" 
+            Visibility="Collapsed"
+            Checked="Gaussian_Checked"/>
+
+        <RadioButton 
+            GroupName="Radio"            
+            Name="Grey"
+            Content="Grey"
+            HorizontalAlignment="Left"
+            Margin="250,0,0,0" 
+            VerticalAlignment="Top" 
+            Visibility="Collapsed"
+            Checked="Grey_Checked"/>
+
+        <RadioButton 
+            GroupName="Radio"            
+            Name="Canny"
+            Content="Canny"
+            HorizontalAlignment="Left" 
+            Margin="330,0,0,0"
+            VerticalAlignment="Top"
+            Visibility="Collapsed"
+            Checked="Canny_Checked"/>
+
+        <RadioButton
+            GroupName="Radio"
+            Name="PyrDown"
+            Content="PyrDown"
+            HorizontalAlignment="Left" 
+            Margin="30,60,0,0" 
+            VerticalAlignment="Top"
+            Visibility="Collapsed"
+            Checked="PyrDown_Checked"/>
+
+        <RadioButton
+            GroupName="Radio"
+            Name="PyrUp"
+            Content="PyrUp"
+            HorizontalAlignment="Left" 
+            Margin="170,60,0,0" 
+            VerticalAlignment="Top"
+            Visibility="Collapsed"
+            Checked="PyrUp_Checked"/>
+        
+        <RadioButton
+            GroupName="Radio"
+            Name="CannyDown"
+            Content="CannyDown"
+            HorizontalAlignment="Left" 
+            Margin="270,60,0,0" 
+            VerticalAlignment="Top"
+            Visibility="Collapsed"
+            Checked="CannyDown_Checked"/>
+
+        <RadioButton 
+            GroupName="Radio"
+            Name="Contours"
+            Content="Contours"
+            HorizontalAlignment="Left"
+            Margin="60,343,0,0"             
+            VerticalAlignment="Top" 
+            Visibility="Collapsed"
+            Checked="Contours_Checked"
+            />
+        
+        <RadioButton
+            GroupName="Radio"
+            Name="Rectangle"
+            Content="Rectangle"
+            HorizontalAlignment="Left"
+            Margin="227,343,0,0"
+            VerticalAlignment="Top" 
+            Visibility="Collapsed"
+            Checked="Rectangle_Checked"/>
+        
+        <RadioButton 
+            GroupName="Radio"
+            Name="Finished"
+            Content="Finished" 
+            HorizontalAlignment="Left"
+            Margin="407,343,0,0" 
+            VerticalAlignment="Top" 
+            Visibility="Collapsed"
+            Checked="Finished_Checked"/>
+       
+    </Grid>
+</Page>
